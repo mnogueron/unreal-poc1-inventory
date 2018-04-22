@@ -14,6 +14,7 @@ struct FInventorySlot {
 	UPROPERTY(BlueprintReadOnly)
 	FItem Item;
 
+	UPROPERTY(BlueprintReadOnly)
 	int Count;
 
 	FInventorySlot()
