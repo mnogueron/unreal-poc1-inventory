@@ -10,18 +10,18 @@
 USTRUCT(Blueprintable)
 struct FInventorySlot {
 	GENERATED_BODY()
-		
+
 	UPROPERTY(BlueprintReadOnly)
-	APickable* Item;
+	FItem Item;
+
 	int Count;
 
 	FInventorySlot()
 	{
-		Item = NULL;
 		Count = 0;
 	}
 
-	FInventorySlot(APickable* Item, int Count)
+	FInventorySlot(FItem Item, int Count)
 	{
 		this->Item = Item;
 		this->Count = Count;

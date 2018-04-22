@@ -56,3 +56,8 @@ void APickable::Tick(float DeltaTime)
 	//}
 }
 
+FItem APickable::GetItem()
+{
+	return FItem(this->Name, this->Image);
+}
+

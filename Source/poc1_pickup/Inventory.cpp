@@ -44,7 +44,7 @@ bool AInventory::HasPartialStack(APickable* Item,  int* IndexOut)
 	bool found = false;
 	for (int32 Index = 0; Index < ItemList.Num() && !found; ++Index)
 	{
-		if (ItemList[Index].Item->Name == Item->Name && ItemList[Index].Count < Item->MaxStackCapacity) {
+		if (ItemList[Index].Item.Name == Item->Name && ItemList[Index].Count < Item->MaxStackCapacity) {
 			*IndexOut = Index;
 			found = true;
 			break;
@@ -70,7 +70,7 @@ void AInventory::AddItem(APickable* Item)
 	}
 	else if (HasSpace())
 	{
-		ItemList.Add(FInventorySlot(Item, 1));
+		ItemList.Add(FInventorySlot(Item->GetItem(), 1));
 		Item->Destroy();
 	}
 }

@@ -7,8 +7,27 @@
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
-#include <string>
 #include "Pickable.generated.h"
+
+USTRUCT(Blueprintable)
+struct FItem {
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FString Name;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	UTexture2D* Image;
+
+	FItem()
+	{}
+
+	FItem(FString Name, UTexture2D* Image)
+	{
+		this->Name = Name;
+		this->Image = Image;
+	}
+};
 
 UCLASS()
 class POC1_PICKUP_API APickable : public AActor
@@ -26,6 +45,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	FItem GetItem();
 
 	UPROPERTY(EditAnywhere)
 	float ReachDistance;
